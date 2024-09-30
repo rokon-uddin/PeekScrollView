@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+      GeometryReader {
+        let safeArea = $0.safeAreaInsets
+        PeekScrollView(safeArea: safeArea)
+          .ignoresSafeArea(.container, edges: .top)
+      }
     }
 }
 
 #Preview {
     ContentView()
 }
+
+
